@@ -6,6 +6,9 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtil {
     private static final SessionFactory SESSION_FACTORY = initSessionFactory();
 
+    private HibernateUtil() {
+    }
+
     private static SessionFactory initSessionFactory() {
         try {
             return new Configuration()
@@ -14,9 +17,6 @@ public class HibernateUtil {
         } catch (Exception e) {
             throw new RuntimeException("Can't create SessionFactory", e);
         }
-    }
-
-    private HibernateUtil() {
     }
 
     public static SessionFactory getSessionFactory() {
